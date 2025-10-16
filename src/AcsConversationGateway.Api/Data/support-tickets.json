@@ -1,0 +1,18 @@
+[
+  {
+    "id": 9901,
+    "customerId": 101,
+    "employeeId": 201,
+    "subject": "Support Ticket for Customer 101",
+    "status": 0,
+    "messages": []
+  },
+  {
+    "id": 9902,
+    "customerId": 102,
+    "employeeId": 201,
+    "subject": "Support Ticket for Customer 102",
+    "status": 0,
+    "messages": []
+  }
+]

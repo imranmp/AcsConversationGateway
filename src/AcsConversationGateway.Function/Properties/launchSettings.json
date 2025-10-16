@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AcsConversationGateway.Function": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7241",
+      "launchBrowser": false,
+      "devTunnelEnabled": true,
+      "devTunnelAccess": "public"
+    }
+  }
+}

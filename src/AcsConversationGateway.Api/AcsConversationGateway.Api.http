@@ -1,0 +1,72 @@
+@AcsConversationApi_HostAddress = https://localhost:7195
+
+### Variables
+@customerId = 101
+
+### Get all customers
+GET {{AcsConversationApi_HostAddress}}/customers
+Accept: application/json
+
+###
+
+### Get all support tickets
+GET {{AcsConversationApi_HostAddress}}/tickets
+Accept: application/json
+
+###
+
+### Get support tickets for specific customer
+GET {{AcsConversationApi_HostAddress}}/tickets?customerId={{customerId}}
+Accept: application/json
+
+###
+
+### Send SMS to customer
+POST {{AcsConversationApi_HostAddress}}/sms/send
+Content-Type: application/json
+
+{
+  "customerId": {{customerId}},
+  "message": "Hello! This is a test SMS message from customer service."
+}
+
+###
+
+### Process inbound SMS (webhook simulation)
+POST {{AcsConversationApi_HostAddress}}/sms/inbound
+Content-Type: application/json
+
+{
+  "data": {
+    "from": "+14075551111",
+    "to": "+18882861538",
+    "message": "Thank you for your help!",
+    "messageId": "test-message-id-123"
+  }
+}
+
+###
+
+### Send email to customer
+POST {{AcsConversationApi_HostAddress}}/email/send
+Content-Type: application/json
+
+{
+  "customerId": {{customerId}},
+  "subject": "Support Update",
+  "body": "Hello Andrew! We have an update regarding your support ticket. Please let us know if you have any questions."
+}
+
+###
+
+### Process inbound email (webhook simulation)
+POST {{AcsConversationApi_HostAddress}}/email/inbound
+Content-Type: application/json
+
+{
+  "from": "imran+1@example.com",
+  "to": "admin+9901@pl26.onmicrosoft.com",
+  "bodyPreview": "Thank you for the quick response. I have no further questions.",
+  "receivedDateTime": "2024-10-14T15:30:00Z",
+  "conversationId": "email-conversation-456"
+}
